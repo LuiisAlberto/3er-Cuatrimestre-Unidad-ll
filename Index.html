@@ -96,7 +96,7 @@
         cambiar5();
     }
 
-//Generar numeros aletorios para cambiar el texto entre 0 y 1, pero que el numero uno aparezca un maximo de dos veces
+//Generar numeros aletorios para cambiar el texto entre 0 y 1, 
 var numero1 = Math.floor(Math.random() * 2);
     if(numero1 == numero2){
         numero1 = Math.floor(Math.random() * 2);
@@ -125,7 +125,7 @@ var textovidas = document.getElementById("textovidas");
 textopuntos.innerHTML = "Puntos: " + puntos;
 textovidas.innerHTML = "Vidas: " + vidas;
 
-//Funcion para contar los puntosde todos los botones
+//Funcion para contar los puntos de todos los botones
 function contar(){
     if(numero1 == 1){
         puntos = puntos + 1;
