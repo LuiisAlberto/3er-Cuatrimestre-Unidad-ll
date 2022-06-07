@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El que Busca Encuentra</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>El que Busca Encuentra</h1>
+    <div class="puntos">
+        <span id="textopuntos">Vidas: </span>
+        <span id="textovidas">Puntos: </span> 
+    </div>
+
+    <section>
+    <div class="tablero">
+        <div id="casilla1">
+            <article>
+                <article id="texto1">
+                    <p>?</p>
+                </article>
+            </article>
+        </div>
+         <button id="boton1">Seleccioname</button> 
+        <div id="casilla2">
+            <article>
+                <article id="texto2">
+                    <p>?</p>
+                </article>
+            </article>
+        </div>
+        <button id="boton2">Seleccioname</button>
+        <div id="casilla3">
+            <article>
+                <article id="texto3">
+                    <p>?</p>
+                </article>
+            </article>
+        </div>
+        <button id="boton3">Seleccioname</button>
+        <div id="casilla4">
+            <article>
+                <article id="texto4">
+                    <p>?</p>
+                </article>
+            </article>
+        </div>
+        <button id="boton4">Seleccioname</button>
+        <div id="casilla5">
+            <article>
+                <article id="texto5">
+                    <p>?</p>
+                </article>
+            </article>
+        </div>
+        <button id="boton5">Seleccioname</button> 
+    </div>
+    </section>
+
+<script>
+    alert("Bienvenido a El que Busca Encuentra");
+    alert("Para jugar, selecciona una casilla y presiona el boton correspondiente");
+    alert("SIMBOLOS: \n 0 = No encontraste nada \n 1 = Encontraste una casilla con un valor");
+
+    function cambiar(){                                             //Funcion para cambiar el texto de las casillas
+        document.getElementById("texto1").innerHTML = numero1;
+    
+    }
+    document.getElementById("boton1").onclick = function(){
+        cambiar();
+    }
+    function cambiar2(){
+        document.getElementById("texto2").innerHTML = numero2;
+    }
+    document.getElementById("boton2").onclick = function(){
+        cambiar2();
+    }
+    function cambiar3(){
+        document.getElementById("texto3").innerHTML = numero3;
+    }
+    document.getElementById("boton3").onclick = function(){
+        cambiar3();
+    }
+    function cambiar4(){
+        document.getElementById("texto4").innerHTML = numero4;
+    }
+    document.getElementById("boton4").onclick = function(){
+        cambiar4();
+    }
+    function cambiar5(){
+        document.getElementById("texto5").innerHTML = numero5;
+    }
+    document.getElementById("boton5").onclick = function(){
+        cambiar5();
+    }
+
+//Generar numeros aletorios para cambiar el texto entre 0 y 1, pero que el numero uno aparezca un maximo de dos veces
+var numero1 = Math.floor(Math.random() * 2);
+    if(numero1 == numero2){
+        numero1 = Math.floor(Math.random() * 2);
+    }
+var numero2 = Math.floor(Math.random() * 2);
+    if(numero2 == numero1){
+        numero2 = Math.floor(Math.random() * 2);
+    }
+var numero3 = Math.floor(Math.random() * 2);
+    if(numero3 == numero1 || numero3 == numero2){
+        numero3 = Math.floor(Math.random() * 2);
+    }
+var numero4 = Math.floor(Math.random() * 2);
+    if(numero4 == numero1 || numero4 == numero2 ){
+        numero4 = Math.floor(Math.random() * 2);
+    }
+var numero5 = Math.floor(Math.random() * 2);
+    if(numero5 == numero1 || numero5 == numero2 || numero5 == numero3 ){
+        numero5 = Math.floor(Math.random() * 2);
+    }
+
+var puntos = 0;
+var vidas = 4;
+var textopuntos = document.getElementById("textopuntos");
+var textovidas = document.getElementById("textovidas");
+textopuntos.innerHTML = "Puntos: " + puntos;
+textovidas.innerHTML = "Vidas: " + vidas;
+
+//Funcion para contar los puntosde todos los botones
+function contar(){
+    if(numero1 == 1){
+        puntos = puntos + 1;
+    }
+    if(numero2 == 1){
+        puntos = puntos + 1;
+    }
+    if(numero3 == 1){
+        puntos = puntos + 1;
+    }
+    if(numero4 == 1){
+        puntos = puntos + 1;
+    }
+    if(numero5 == 1){
+        puntos = puntos + 1;
+    }
+    textopuntos.innerHTML = "Puntos: " + puntos;
+}
+contar();
+
+//Funcion para contar las vidas de todos los botones
+function contarvidas(){
+    if(numero1 == 0){
+        vidas = vidas - 1;
+    }
+    if(numero2 == 0){
+        vidas = vidas - 1;
+    }
+    if(numero3 == 0){
+        vidas = vidas - 1;
+    }
+    if(numero4 == 0){
+        vidas = vidas - 1;
+    }
+    if(numero5 == 0){
+        vidas = vidas - 1;
+    }
+    textovidas.innerHTML = "Vidas: " + vidas;
+}
+contarvidas();
+
+</script>
+</body>
+</html>
